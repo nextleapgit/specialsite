@@ -10,7 +10,7 @@
     "typecheck": "npm --prefix reference/prototype run typecheck",
     "test": "npm --prefix reference/prototype test",
     "build": "npm --prefix reference/prototype run build",
-    "test:e2e": "npm --prefix reference/prototype run test:e2e",
+    "test:e2e": "node scripts/governance/reference-e2e.mjs",
     "check:budgets": "npm --prefix reference/prototype run check:budgets",
     "test:governance": "node --test scripts/governance/*.test.mjs",
     "check:secrets": "node scripts/governance/secrets.mjs",

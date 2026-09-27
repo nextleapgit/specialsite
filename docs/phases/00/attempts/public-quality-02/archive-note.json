@@ -1,0 +1,16 @@
+{
+  "archivedAt": "2026-09-27T17:23:19.461Z",
+  "reason": "90 governance tests passed; original browser harness failed a second time during theme transitions, now on appearance secondary buttons at intermediate background #787c86. Preserve failure and fix test synchronization/environment outside immutable prototype; no accessibility rule waived.",
+  "hashes": {
+    "tests.json": "9f95e44b8c230d2f502735f4ef9f46cbf8215a5e0262bf777efd684a5b1a761c",
+    "logs/budgets.txt": "12cc40b7228ba97c6024703c7b41f66a5bb5543e3c10f25dbf6973f798bde9d5",
+    "logs/build.txt": "04f80379635f56a2fde355a08b340d68ac65c5abcc1f259dd290d245335692ab",
+    "logs/dependency-audit.txt": "db086c3bc7ff76ef84993cfedd85cf723cc33d63dc0752c67f037eb3f07b06ab",
+    "logs/e2e-accessibility-visual.txt": "1235344d69a6f28e8708613406b1d661aa898f7447a89d6f36fa47d0dd801cb9",
+    "logs/governance.txt": "9ce49b16c3018e77c1e01f4c77110bc144d32e004592352f6ba725994081fe59",
+    "logs/lint.txt": "8dfd887acb77bc06ca19220b245b089743900cc5f3b24d6b6bf639603f0ee817",
+    "logs/secret-scan.txt": "78a063bb187e3f9b9a4e0cf6ecb406565b2d87240b175067e3ca1528b8ac95bc",
+    "logs/typecheck.txt": "5316231dee3533485e244b04bdc2c0d37498993e23046ab73e0cef713e675337",
+    "logs/unit-component.txt": "4f932e1800620193d90e1e966cec76e015e6d69a6b98acb4c02606684ee8d894"
+  }
+}

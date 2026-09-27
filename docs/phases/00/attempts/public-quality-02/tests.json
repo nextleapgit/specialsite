@@ -1,0 +1,86 @@
+{
+  "sourceDigest": "8c1540cfb894a31234f7f50db6764d94786e90bfca11419ac4a41ba7fa905abe",
+  "checks": [
+    {
+      "name": "lint",
+      "command": "npm run lint",
+      "startedAt": "2026-09-27T17:19:18.318Z",
+      "finishedAt": "2026-09-27T17:19:20.520Z",
+      "exitCode": 0,
+      "log": "logs/lint.txt",
+      "logHash": "8dfd887acb77bc06ca19220b245b089743900cc5f3b24d6b6bf639603f0ee817"
+    },
+    {
+      "name": "typecheck",
+      "command": "npm run typecheck",
+      "startedAt": "2026-09-27T17:19:20.520Z",
+      "finishedAt": "2026-09-27T17:19:23.330Z",
+      "exitCode": 0,
+      "log": "logs/typecheck.txt",
+      "logHash": "5316231dee3533485e244b04bdc2c0d37498993e23046ab73e0cef713e675337"
+    },
+    {
+      "name": "unit-component",
+      "command": "npm test",
+      "startedAt": "2026-09-27T17:19:23.330Z",
+      "finishedAt": "2026-09-27T17:19:26.623Z",
+      "exitCode": 0,
+      "log": "logs/unit-component.txt",
+      "logHash": "4f932e1800620193d90e1e966cec76e015e6d69a6b98acb4c02606684ee8d894"
+    },
+    {
+      "name": "governance",
+      "command": "npm run test:governance",
+      "startedAt": "2026-09-27T17:19:26.623Z",
+      "finishedAt": "2026-09-27T17:19:35.713Z",
+      "exitCode": 0,
+      "log": "logs/governance.txt",
+      "logHash": "9ce49b16c3018e77c1e01f4c77110bc144d32e004592352f6ba725994081fe59"
+    },
+    {
+      "name": "build",
+      "command": "npm run build",
+      "startedAt": "2026-09-27T17:19:35.713Z",
+      "finishedAt": "2026-09-27T17:19:40.988Z",
+      "exitCode": 0,
+      "log": "logs/build.txt",
+      "logHash": "04f80379635f56a2fde355a08b340d68ac65c5abcc1f259dd290d245335692ab"
+    },
+    {
+      "name": "budgets",
+      "command": "npm run check:budgets",
+      "startedAt": "2026-09-27T17:19:40.988Z",
+      "finishedAt": "2026-09-27T17:19:42.048Z",
+      "exitCode": 0,
+      "log": "logs/budgets.txt",
+      "logHash": "12cc40b7228ba97c6024703c7b41f66a5bb5543e3c10f25dbf6973f798bde9d5"
+    },
+    {
+      "name": "e2e-accessibility-visual",
+      "command": "npm run test:e2e",
+      "startedAt": "2026-09-27T17:19:42.048Z",
+      "finishedAt": "2026-09-27T17:21:20.943Z",
+      "exitCode": 1,
+      "log": "logs/e2e-accessibility-visual.txt",
+      "logHash": "1235344d69a6f28e8708613406b1d661aa898f7447a89d6f36fa47d0dd801cb9"
+    },
+    {
+      "name": "dependency-audit",
+      "command": "npm run audit:reference",
+      "startedAt": "2026-09-27T17:21:20.944Z",
+      "finishedAt": "2026-09-27T17:21:26.015Z",
+      "exitCode": 0,
+      "log": "logs/dependency-audit.txt",
+      "logHash": "db086c3bc7ff76ef84993cfedd85cf723cc33d63dc0752c67f037eb3f07b06ab"
+    },
+    {
+      "name": "secret-scan",
+      "command": "npm run check:secrets",
+      "startedAt": "2026-09-27T17:21:26.015Z",
+      "finishedAt": "2026-09-27T17:21:26.673Z",
+      "exitCode": 0,
+      "log": "logs/secret-scan.txt",
+      "logHash": "78a063bb187e3f9b9a4e0cf6ecb406565b2d87240b175067e3ca1528b8ac95bc"
+    }
+  ]
+}
