@@ -5,7 +5,7 @@ import { mkdtempSync, mkdirSync, writeFileSync, rmSync, readFileSync } from 'nod
 import { tmpdir } from 'node:os';
 import { resolve, join, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { collectRemote, completedStatus, recordPath, requiredJobs, validateCompletion, validateRemote } from './completion.mjs';
+import { github, collectRemote, completedStatus, recordPath, requiredJobs, validateCompletion, validateRemote } from './completion.mjs';
 import { commonChecks } from './gate.mjs';
 import { sha256 } from './common.mjs';
 
@@ -172,4 +172,15 @@ test('CLI validates record-only Git changes against immutable merge source and r
     if (!absolute.startsWith(parent) || !absolute.slice(parent.length).startsWith('specialsite-completion-test-')) throw new Error('Unsafe fixture cleanup');
     rmSync(absolute, { recursive: true, force: true });
   }
+});
+
+test('GitHub transport uses the accepted repository endpoint without a trailing slash and preserves pagination', () => {
+  const calls = [];
+  const execute = (command, args, options) => { calls.push({ command, args, options }); return '{}'; };
+  github('', false, execute);
+  github('branches/main/protection', false, execute);
+  github('actions/workflows/quality.yml/runs?per_page=100', true, execute);
+  assert.deepEqual(calls.map(c => c.args[3]), ['repos/nextleapgit/specialsite', 'repos/nextleapgit/specialsite/branches/main/protection', 'repos/nextleapgit/specialsite/actions/workflows/quality.yml/runs?per_page=100']);
+  assert.deepEqual(calls[2].args.slice(-2), ['--paginate', '--slurp']);
+  assert.ok(calls.every(c => c.command === 'gh' && c.options.windowsHide === true && c.options.stdio[0] === 'ignore'));
 });

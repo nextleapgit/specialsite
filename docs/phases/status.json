@@ -5,7 +5,7 @@
   "phases": [
     {
       "id": "00",
-      "status": "ready",
+      "status": "remediating",
       "branch": "phase/00-governance",
       "rounds": [
         1,

@@ -55,10 +55,10 @@ export function validateRemote(evidence, phase, branch) {
 }
 
 // Reads only GitHub's REST API; token values are never accepted as arguments or printed.
-export function github(path, paginate = false) {
-  const args = ['api', '--hostname', 'github.com', `repos/${repository}/${path}`];
+export function github(path, paginate = false, execute = execFileSync) {
+  const args = ['api', '--hostname', 'github.com', `repos/${repository}${path ? `/${path}` : ''}`];
   if (paginate) args.push('--paginate', '--slurp');
-  return JSON.parse(execFileSync('gh', args, { encoding: 'utf8', windowsHide: true, stdio: ['ignore', 'pipe', 'pipe'], timeout: 60000, maxBuffer: 16 * 1024 * 1024 }));
+  return JSON.parse(execute('gh', args, { encoding: 'utf8', windowsHide: true, stdio: ['ignore', 'pipe', 'pipe'], timeout: 60000, maxBuffer: 16 * 1024 * 1024 }));
 }
 
 export function collectRemote(prNumber, api = github) {
