@@ -5,18 +5,15 @@
   "phases": [
     {
       "id": "00",
-      "status": "blocked",
+      "status": "remediating",
       "branch": "phase/00-governance",
       "rounds": [
         1
       ],
-      "blockers": [
-        "GitHub protection and rulesets both return HTTP 403 for the private repository under its current plan; reverified after upload. Do not change visibility or purchase a plan automatically.",
-        "PR #1 is a draft. Claude round 01 is blocked; GOV-00-EVID-01 has a local correction awaiting independent closure. Live phase-evidence fails. No merge or phase 01 start is authorized by the evidence."
-      ],
+      "blockers": [],
       "remote": {
         "repository": "https://github.com/nextleapgit/specialsite",
-        "protectionVerified": false,
+        "protectionVerified": true,
         "pullRequest": "https://github.com/nextleapgit/specialsite/pull/1",
         "checksPassed": false,
         "headSha": null,

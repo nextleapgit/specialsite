@@ -11,7 +11,7 @@ import { sha256 } from './common.mjs';
 
 // All GitHub/reviewer data below is synthetic test data, never project evidence.
 function fixture() {
-  const repository = { full_name: 'nextleapgit/specialsite', private: true };
+  const repository = { full_name: 'nextleapgit/specialsite', private: false };
   const branch = 'phase/00-governance';
   const headSha = 'a'.repeat(40), mergeSha = 'b'.repeat(40), digest = 'c'.repeat(64);
   const protection = {
@@ -55,7 +55,7 @@ for (const [name, mutate] of [
   ['unmerged PR', (f) => f.evidence.pullRequest.merged = false],
   ['wrong head branch', (f) => f.evidence.pullRequest.head.ref = 'other'],
   ['forked repository', (f) => f.evidence.pullRequest.head.repo = { full_name: 'other/repo' }],
-  ['public repository', (f) => f.evidence.repository.private = false],
+  ['unapproved visibility change', (f) => f.evidence.repository.private = true],
   ['failed newer workflow', (f) => f.evidence.headRun.conclusion = 'failure'],
   ['cancelled merged workflow', (f) => f.evidence.mergeRun.conclusion = 'cancelled'],
   ['skipped merged check', (f) => f.evidence.mergeJobs[0].conclusion = 'skipped'],

@@ -1,0 +1,16 @@
+{
+  "archivedAt": "2026-09-27T17:19:17.779Z",
+  "reason": "Failed governance test exposed misplaced restart flag (fixed; focused coordinator tests now 19/19). Source was changed during this failed run, so evidence is also stale. Browser suite independently reported one palette contrast failure; preserved, not waived. No review dispatched.",
+  "hashes": {
+    "tests.json": "25472ffd1e2a4e28c33eaf91c00f5cdc856ff3398e409bb920657f08c4153435",
+    "logs/budgets.txt": "12cc40b7228ba97c6024703c7b41f66a5bb5543e3c10f25dbf6973f798bde9d5",
+    "logs/build.txt": "4005e168dcf33b2ef1663304ff9dc6c7c1560de74200013a4b7d3cb15afa62ab",
+    "logs/dependency-audit.txt": "db086c3bc7ff76ef84993cfedd85cf723cc33d63dc0752c67f037eb3f07b06ab",
+    "logs/e2e-accessibility-visual.txt": "a2912eeb4e755ee31337df4dc5e28e92db684072475073cdec456f86269c71ca",
+    "logs/governance.txt": "ff2ff437452d90053d70c7d95b43a57b30d53761f14de97aa4c85541fe1ee7c6",
+    "logs/lint.txt": "8dfd887acb77bc06ca19220b245b089743900cc5f3b24d6b6bf639603f0ee817",
+    "logs/secret-scan.txt": "1ae34ea8d2ba0c264a448b6f5b5c86fd53977917d66f0c68eaf0d180ab43a49f",
+    "logs/typecheck.txt": "5316231dee3533485e244b04bdc2c0d37498993e23046ab73e0cef713e675337",
+    "logs/unit-component.txt": "3c7bbc8b15a95b00b14bc202ee26f0e30710fed1953da91664df051aff649b33"
+  }
+}

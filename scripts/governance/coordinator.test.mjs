@@ -44,6 +44,15 @@ test('four-round decision preserves blocked results and never treats missing pro
   assert.equal(decision({ verdict: 'changes_requested' }, 4), 'round_limit');
   assert.throws(() => decision({ verdict: 'approve' }, 5));
 });
+test('explicit blocked restart cannot waive blockers, approve a review or exceed four rounds', () => {
+  const review = { verdict: 'blocked' };
+  assert.equal(decision(review, 1, [], true), 'remediate');
+  assert.equal(decision(review, 1, ['protection missing'], true), 'blocked');
+  assert.equal(decision(review, 4, [], true), 'round_limit');
+  assert.equal(decision(review, 2), 'blocked', 'A later blocked verdict stops without another explicit restart');
+  assert.equal(review.verdict, 'blocked', 'The historic reviewer verdict is never rewritten');
+});
+
 test('subscription guard rejects API/provider overrides without exposing their values', () => {
   assert.doesNotThrow(() => assertSubscriptionEnvironment({}));
   for (const key of ['OPENAI_API_KEY', 'ANTHROPIC_API_KEY', 'ANTHROPIC_BASE_URL', 'CLAUDE_CODE_USE_VERTEX']) assert.throws(() => assertSubscriptionEnvironment({ [key]: 'private-test-value' }), (e) => !e.message.includes('private-test-value'));

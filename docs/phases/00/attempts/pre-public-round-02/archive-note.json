@@ -1,0 +1,19 @@
+{
+  "archivedAt": "2026-09-27T17:15:23.655Z",
+  "reason": "User changed repository to public; unsigned and unsubmitted round 02 tests/reports predate required visibility-policy and restart changes. Completed round 01 and round counter preserved.",
+  "hashes": {
+    "codex.md": "a76592825df27f8454406a3613a171892115455a6d0873d494b015725ad51518",
+    "logs/budgets.txt": "12cc40b7228ba97c6024703c7b41f66a5bb5543e3c10f25dbf6973f798bde9d5",
+    "logs/build.txt": "74107fc30366f0018c9f3a71fe5fcfd2b3eb64628f35bc69e2299df94dc64e7f",
+    "logs/dependency-audit.txt": "db086c3bc7ff76ef84993cfedd85cf723cc33d63dc0752c67f037eb3f07b06ab",
+    "logs/e2e-accessibility-visual.txt": "aff68d0bccc6f411e9f7a99768115bdfca8c675dd74725273e548c779523b798",
+    "logs/governance.txt": "224d22b7c3443d0e868c254a04125124946dbeb077067dbf529b2919c067ee95",
+    "logs/lint.txt": "8dfd887acb77bc06ca19220b245b089743900cc5f3b24d6b6bf639603f0ee817",
+    "logs/secret-scan.txt": "9addb3c9cb475e799c8d0716da17bf643b10e388738febd7652cffe93c9ff7e7",
+    "logs/typecheck.txt": "5316231dee3533485e244b04bdc2c0d37498993e23046ab73e0cef713e675337",
+    "logs/unit-component.txt": "231734c919fce9dac20ef6491d359e900752c6d0d9368cde7826ae64aed972da",
+    "remediation.md": "da92f0add22d0583253c6766cf2607fc39f3d8cbfb1109c3b663c6d3849f46f8",
+    "security.md": "e34edc77faa1bc15dee36f6a12dc326a0ff7a091e2243e19846aebd15db1f61e",
+    "tests.json": "598d5ca9e792144f4968aca68c361b2ce3da8b2ac7f83b6855cd3b3f7fb943ff"
+  }
+}

@@ -38,7 +38,7 @@ export function validateRun(run, jobs, expectedSha, protection) {
 }
 
 export function validateRemote(evidence, phase, branch) {
-  assert(evidence.repository?.full_name === repository && evidence.repository.private === true, 'Expected the private project repository');
+  assert(evidence.repository?.full_name === repository && evidence.repository.private === false, 'Expected the user-authorized public project repository');
   validateProtection(evidence.protection);
   const pr = evidence.pullRequest;
   assert(Number.isInteger(pr?.number) && pr.number > 0 && pr.merged === true && pr.state === 'closed' && Number.isFinite(Date.parse(pr.merged_at)), 'PR has not been merged');

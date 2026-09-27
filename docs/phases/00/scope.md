@@ -18,7 +18,7 @@ Initial round count is zero. The collection contains no prior approval/test reco
 | GOV-00-02 | Inspect local context and authenticated remote history before initialization; retain a baseline and separate phase branch. | Git history, origin, branch and startup report. |
 | GOV-00-03 | Run fresh reference and governance checks; retain unsuccessful attempts without calling them reviews. | Quality logs with source digest and actual exit codes. |
 | GOV-00-04 | Provide CI for the reference, governance, security and independent-review evidence. | Workflow plus successful live required checks on the latest PR revision. |
-| GOV-00-05 | Verify private repository protection, including required checks, strict updates, conversation resolution and no force-push/delete/admin bypass. | Authenticated GitHub settings; unavailable protection blocks completion. |
+| GOV-00-05 | Verify protection of the public repository authorized by the user on 2026-09-27, including required checks, strict updates, conversation resolution and no force-push/delete/admin bypass. | Authenticated GitHub settings; unavailable protection blocks completion. |
 | GOV-00-06 | Implement and test post-merge completion recording without self-approval or direct-main bypass. | Regression tests and verified merge/check evidence. |
 | GOV-00-07 | Obtain and import an actual Claude extension review for the exact source, with no open valid findings. | Unmodified extension response and passing evidence gate. |
 | GOV-00-08 | Merge only when all conditions hold; verify merged checks before advancing. | PR URL, merge SHA and fresh successful checks; phase 01 remains planned until then. |

@@ -1,0 +1,22 @@
+{
+  "checkedAt": "2026-09-27T17:13:28.603Z",
+  "repository": "nextleapgit/specialsite",
+  "private": false,
+  "visibility": "public",
+  "protectionVerified": true,
+  "checks": [
+    {
+      "context": "reference-quality",
+      "app_id": 15368
+    },
+    {
+      "context": "governance-security",
+      "app_id": 15368
+    },
+    {
+      "context": "phase-evidence",
+      "app_id": 15368
+    }
+  ],
+  "reviewIdentity": "Independent Claude evidence enforced by phase-evidence; no fabricated GitHub approval"
+}

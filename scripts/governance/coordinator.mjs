@@ -7,9 +7,12 @@ import { git, parseClaude, readJson, sha256, sourceDigest, sourceFiles } from '.
 import { importCli, jsonText, prepareCli, roundBase, validateCliPacket, writeNew } from './cli-review.mjs';
 import { claudeArgs, codexArgs, doctor, runProcess } from './coordinator-process.mjs';
 
-export function decision(review, rounds, blockers = []) {
+export function decision(review, rounds, blockers = [], resumeBlocked = false) {
   if (!Number.isInteger(rounds) || rounds < 1 || rounds > 4) throw new Error('Invalid completed-round count');
-  if (review.verdict === 'blocked') return 'blocked';
+  if (review.verdict === 'blocked') {
+    if (!resumeBlocked || blockers.length) return 'blocked';
+    return rounds === 4 ? 'round_limit' : 'remediate';
+  }
   if (review.verdict === 'approve') return blockers.length ? 'blocked' : 'verify';
   if (review.verdict !== 'changes_requested') throw new Error('Invalid verdict');
   return rounds === 4 ? 'round_limit' : 'remediate';
@@ -64,7 +67,7 @@ export async function receiveReview(phase, round, provider) {
   }
   return existsSync(`${base}/claude.json`) ? verifyImported(phase, round) : importCli(phase, round);
 }
-export async function runCoordinator(phaseId) {
+export async function runCoordinator(phaseId, { resumeBlocked = false } = {}) {
   if (!/^0[0-8]$/.test(phaseId)) throw new Error('Invalid phase');
   const lockPath = resolve(git('rev-parse', '--git-path', 'specialsite-coordinator.lock'));
   const unlock = acquireLock(lockPath);
@@ -97,12 +100,14 @@ export async function runCoordinator(phaseId) {
     const tools = await doctor();
     const runtime = snapshot(sourceFiles().filter((p) => p.startsWith('scripts/governance/') && !p.endsWith('.test.mjs')));
     for (;;) {
+      const resumeThisIteration = resumeBlocked;
+      resumeBlocked = false; // Consumed before any new review, including an initial round.
       status = readJson('docs/phases/status.json'); phase = status.phases.find((p) => p.id === phaseId);
       let action = null;
       if (phase.rounds.length) {
         const last = String(phase.rounds.length).padStart(2, '0');
         const report = verifyImported(phaseId, last);
-        action = decision(report.review, phase.rounds.length, phase.blockers);
+        action = decision(report.review, phase.rounds.length, phase.blockers, resumeThisIteration);
         if (action !== 'remediate') {
           if (action === 'verify') {
             const gate = await invoke('gate', process.execPath, ['scripts/governance/phase-gate.mjs']);
@@ -144,10 +149,11 @@ export async function runCoordinator(phaseId) {
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  const [command, phase = '00'] = process.argv.slice(2);
+  const [command, phase = '00', ...options] = process.argv.slice(2);
+    if (options.length && (command !== 'run' || options.length !== 1 || options[0] !== '--resume-blocked')) throw new Error('Unknown coordinator option');
   try {
     if (command === 'doctor') { const result = await doctor(); console.log(JSON.stringify({ claudeLogin: result.claudeLogin, codexLogin: result.codexLogin, permissions: 'Claude read-only tools; Codex workspace-write; no API billing overrides' }, null, 2)); }
-    else if (command === 'run') await runCoordinator(phase);
+    else if (command === 'run') await runCoordinator(phase, { resumeBlocked: options.includes('--resume-blocked') });
     else if (command === 'status') { roundBase(phase, '01'); const p = `docs/phases/${phase}/attempts/coordinator/state.json`; console.log(existsSync(p) ? readFileSync(p, 'utf8') : 'Coordinator has not run'); }
     else if (command === 'unlock') {
       const p = resolve(git('rev-parse', '--git-path', 'specialsite-coordinator.lock')), lock = readJson(p);
