@@ -5,9 +5,11 @@
   "phases": [
     {
       "id": "00",
-      "status": "implementing",
+      "status": "blocked",
       "branch": "phase/00-governance",
-      "rounds": [],
+      "rounds": [
+        1
+      ],
       "blockers": [
         "GitHub returned HTTP 403 for private-repository rulesets: protection requires an eligible plan. Do not change visibility or purchase a plan automatically."
       ],

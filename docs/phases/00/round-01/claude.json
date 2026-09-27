@@ -1,0 +1,23 @@
+{
+  "reviewer": "claude",
+  "channel": "cli",
+  "sourceDigest": "88aef6288abf503dc4995027ef4aae285d985adcfde348fda0469d8b0f62da20",
+  "inputHash": "2c505df96bb545c8ce21e5daf561a10c13268a13e54f1c0fe9d76d9b5ae54158",
+  "requestHash": "59bce6bbace8a362a8dfadba77d92f110b8d8a3384fcf4d9ddd936ce30913cb5",
+  "rawHash": "e382a2293e537ca063efbb7e52b78e099bdf54b3590ebb4e0afc5c901fe7a86a",
+  "sessionId": "a43cd423-e6ca-4df4-a10a-475501010c8f",
+  "review": {
+    "verdict": "blocked",
+    "summary": "Phase 00 round 01 (coordinator.mjs / GOV-00-09 delivery) is well-engineered: the read source (coordinator.mjs, coordinator-process.mjs, cli-review.mjs, gate.mjs, common.mjs, extension-review.mjs, required-checks.mjs, quality.mjs, secrets.mjs) matches codex.md's claims — CLI args separate prompt from shell (spawn with shell:false, stdin piping), subscription-only auth guard rejects API/provider env vars, Claude is restricted to Read/Glob/Grep with safe-mode/restricted/no MCP, Codex stays workspace-write with approval_policy=never, locking is PID/nonce-owned, source/status/round-evidence snapshots are hashed and re-verified before/after each step, and round counting is monotonic/capped at 4 with no silent reset. `npm run test:governance` (logs/governance.txt) shows 89/89 passing tests that specifically target these properties (lock ownership, immutable-source guard, freeze-on-change, interrupted-import recovery, round-limit/reset rejection, CLI-vs-extension channel separation, older-CLI-version rejection). All 9 required local checks in tests.json report exitCode 0 with hashes matching request.json's evidenceHashes, and reference/prototype has zero diff (GOV-00-01 holds). This is round 1 of phase 00; docs/phases/status.json shows rounds: [] and no prior completed round exists, so there are no earlier finding IDs to verify — verifiedClosed is correctly empty. However, the phase cannot be approved: status.json still records the open GOV-00-04/05/08 blocker (GitHub 403 on private-repo branch-protection rulesets — no plan purchase or visibility change permitted), and there is no PR, no live CI run, and no verified GitHub branch protection for this phase. Per the review contract, missing remote evidence and an unresolved blocker mean blocked, not approve, regardless of how clean the local evidence is. Separately, I found a real (non-blocking-severity but genuine) data-integrity defect: the final paragraph appended to both docs/phases/00/round-01/codex.md and docs/phases/00/round-01/security.md is irrecoverably corrupted into literal '?' replacement characters (mojibake), and .vscode/tasks.json line 199 has a corrupted em dash ('â€”') introduced in this same diff — all consistent with a non-UTF-8 console codepage clobbering Arabic/Unicode text on write. This does not itself invalidate the numeric quality evidence (tests.json/logs are intact and separately hashed), but it destroys the legibility of the report's own closing attestation text and is a real defect that should be fixed by writing files as UTF-8 (or via Node fs APIs instead of a mis-configured console codepage) rather than waived.",
+    "findings": [
+      {
+        "id": "GOV-00-EVID-01",
+        "severity": "medium",
+        "file": "docs/phases/00/round-01/codex.md",
+        "description": "The final section (header and body, appended after the main report) is corrupted into literal '?' replacement characters instead of the intended Arabic text confirming the final quality run result. The same corruption pattern appears in docs/phases/00/round-01/security.md's closing paragraph and in .vscode/tasks.json's task-picker description ('â€”' in place of an em dash) introduced by this same diff, indicating a non-UTF-8 console codepage mangled Unicode text on write in at least three places in this round's source/evidence. The underlying numeric evidence (tests.json, logs/*.txt) is separately hashed and intact, so this does not misrepresent pass/fail status, but the report's own closing attestation text is irrecoverably illegible, which fails the 'genuine, unmodified, substantive' evidence bar this project holds itself to.",
+        "verification": "Re-generate the corrupted paragraphs in codex.md and security.md and re-save/commit .vscode/tasks.json ensuring UTF-8 write encoding (e.g., avoid `>>`/redirect through a non-UTF-8 Windows console codepage; write via Node fs.writeFileSync or `chcp 65001`), then confirm with `rg -n '\\?\\?\\?\\?\\?' docs/phases/00/round-01` and a search for 'â€”' return no matches, and that the text reads as intended Arabic/em dash."
+      }
+    ],
+    "verifiedClosed": []
+  }
+}
