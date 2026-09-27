@@ -1,0 +1,2 @@
+{"runId":"2026-09-27T17-29-21-980Z-1b7c877c","phase":"00","step":"claude-02","pid":40724,"updatedAt":"2026-09-27T17:29:27.912Z"}
+{"runId":"2026-09-27T17-29-21-980Z-1b7c877c","phase":"00","step":"error","pid":40724,"updatedAt":"2026-09-27T17:54:36.126Z","failedStep":"claude-02","message":"Claude process failed; original output retained in attempt logs, not counted as a review"}
