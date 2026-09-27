@@ -11,12 +11,13 @@
         1
       ],
       "blockers": [
-        "GitHub returned HTTP 403 for private-repository rulesets: protection requires an eligible plan. Do not change visibility or purchase a plan automatically."
+        "GitHub protection and rulesets both return HTTP 403 for the private repository under its current plan; reverified after upload. Do not change visibility or purchase a plan automatically.",
+        "PR #1 is a draft. Claude round 01 is blocked; GOV-00-EVID-01 has a local correction awaiting independent closure. Live phase-evidence fails. No merge or phase 01 start is authorized by the evidence."
       ],
       "remote": {
         "repository": "https://github.com/nextleapgit/specialsite",
         "protectionVerified": false,
-        "pullRequest": null,
+        "pullRequest": "https://github.com/nextleapgit/specialsite/pull/1",
         "checksPassed": false,
         "headSha": null,
         "mergeSha": null,
