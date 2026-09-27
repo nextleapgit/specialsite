@@ -20,6 +20,9 @@
     "review:import": "node scripts/governance/extension-review.mjs import",
     "gate": "node scripts/governance/phase-gate.mjs",
     "phase:complete": "node scripts/governance/completion.mjs prepare",
-    "phase:verify": "node scripts/governance/phase-gate.mjs --live"
+    "phase:verify": "node scripts/governance/phase-gate.mjs --live",
+    "coordinator:doctor": "node scripts/governance/coordinator.mjs doctor",
+    "coordinator:run": "node scripts/governance/coordinator.mjs run",
+    "coordinator:status": "node scripts/governance/coordinator.mjs status"
   }
 }

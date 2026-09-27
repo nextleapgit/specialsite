@@ -149,6 +149,47 @@
         "cwd": "${workspaceFolder}"
       },
       "problemMatcher": []
+    },
+    {
+      "label": "SpecialSite: Check coordinator connections",
+      "type": "process",
+      "command": "node",
+      "args": [
+        "scripts/governance/coordinator.mjs",
+        "doctor"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "SpecialSite: Coordinate Codex and Claude",
+      "type": "process",
+      "command": "node",
+      "args": [
+        "scripts/governance/coordinator.mjs",
+        "run",
+        "${input:phase}"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "SpecialSite: Show coordinator state",
+      "type": "process",
+      "command": "node",
+      "args": [
+        "scripts/governance/coordinator.mjs",
+        "status",
+        "${input:phase}"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
     }
   ],
   "inputs": [

@@ -1,11 +1,11 @@
 {
-  "sourceDigest": "88aef6288abf503dc4995027ef4aae285d985adcfde348fda0469d8b0f62da20",
+  "sourceDigest": "fd9f13536d5280b792d9aedc53e287712d71fc7c4ed375c9c7247460ba0aa981",
   "checks": [
     {
       "name": "lint",
       "command": "npm run lint",
-      "startedAt": "2026-09-27T14:45:06.480Z",
-      "finishedAt": "2026-09-27T14:45:11.237Z",
+      "startedAt": "2026-09-27T14:40:02.878Z",
+      "finishedAt": "2026-09-27T14:40:31.419Z",
       "exitCode": 0,
       "log": "logs/lint.txt",
       "logHash": "8dfd887acb77bc06ca19220b245b089743900cc5f3b24d6b6bf639603f0ee817"
@@ -13,8 +13,8 @@
     {
       "name": "typecheck",
       "command": "npm run typecheck",
-      "startedAt": "2026-09-27T14:45:11.237Z",
-      "finishedAt": "2026-09-27T14:45:18.392Z",
+      "startedAt": "2026-09-27T14:40:31.419Z",
+      "finishedAt": "2026-09-27T14:40:44.285Z",
       "exitCode": 0,
       "log": "logs/typecheck.txt",
       "logHash": "5316231dee3533485e244b04bdc2c0d37498993e23046ab73e0cef713e675337"
@@ -22,35 +22,35 @@
     {
       "name": "unit-component",
       "command": "npm test",
-      "startedAt": "2026-09-27T14:45:18.392Z",
-      "finishedAt": "2026-09-27T14:45:24.865Z",
+      "startedAt": "2026-09-27T14:40:44.285Z",
+      "finishedAt": "2026-09-27T14:41:20.093Z",
       "exitCode": 0,
       "log": "logs/unit-component.txt",
-      "logHash": "9e895acc7dd5b064278dd4b32a1624a8353bb4cbea58acd176810105a274374c"
+      "logHash": "6925bbf40d14db6f82abc69e14afc7ecb14aaa329a06279b1a090f01c7a2394f"
     },
     {
       "name": "governance",
       "command": "npm run test:governance",
-      "startedAt": "2026-09-27T14:45:24.865Z",
-      "finishedAt": "2026-09-27T14:45:37.760Z",
+      "startedAt": "2026-09-27T14:41:20.093Z",
+      "finishedAt": "2026-09-27T14:41:37.835Z",
       "exitCode": 0,
       "log": "logs/governance.txt",
-      "logHash": "4b9e4731df5d890c5ff12277d2bfce57433aaf7df4c65ed420c5d92060c7bc68"
+      "logHash": "f7369f72e35ba7274cae9d2f6349de2ff8734ba5436c7a39e9a9833a899b1f75"
     },
     {
       "name": "build",
       "command": "npm run build",
-      "startedAt": "2026-09-27T14:45:37.760Z",
-      "finishedAt": "2026-09-27T14:45:44.953Z",
+      "startedAt": "2026-09-27T14:41:37.836Z",
+      "finishedAt": "2026-09-27T14:41:48.969Z",
       "exitCode": 0,
       "log": "logs/build.txt",
-      "logHash": "31f0e3fb7d52c64718721ba995e8d7976bf9b3be776f5de6f468e81a9c02fe70"
+      "logHash": "23a2dd12f911fb180d0fe63414a28646df10f81bd98d050a1cf48fb3da012425"
     },
     {
       "name": "budgets",
       "command": "npm run check:budgets",
-      "startedAt": "2026-09-27T14:45:44.953Z",
-      "finishedAt": "2026-09-27T14:45:46.179Z",
+      "startedAt": "2026-09-27T14:41:48.970Z",
+      "finishedAt": "2026-09-27T14:41:50.113Z",
       "exitCode": 0,
       "log": "logs/budgets.txt",
       "logHash": "12cc40b7228ba97c6024703c7b41f66a5bb5543e3c10f25dbf6973f798bde9d5"
@@ -58,17 +58,17 @@
     {
       "name": "e2e-accessibility-visual",
       "command": "npm run test:e2e",
-      "startedAt": "2026-09-27T14:45:46.179Z",
-      "finishedAt": "2026-09-27T14:48:11.553Z",
+      "startedAt": "2026-09-27T14:41:50.113Z",
+      "finishedAt": "2026-09-27T14:44:23.352Z",
       "exitCode": 0,
       "log": "logs/e2e-accessibility-visual.txt",
-      "logHash": "c4f605d095c19048785b38c332f6fd050d1eaab7d66758e297a089ce92707665"
+      "logHash": "8152357ad7743b48e42fd6b32dbccd5052eb61b646c2c25697955bfc0b3b7be9"
     },
     {
       "name": "dependency-audit",
       "command": "npm run audit:reference",
-      "startedAt": "2026-09-27T14:48:11.553Z",
-      "finishedAt": "2026-09-27T14:48:14.327Z",
+      "startedAt": "2026-09-27T14:44:23.353Z",
+      "finishedAt": "2026-09-27T14:44:39.752Z",
       "exitCode": 0,
       "log": "logs/dependency-audit.txt",
       "logHash": "db086c3bc7ff76ef84993cfedd85cf723cc33d63dc0752c67f037eb3f07b06ab"
@@ -76,11 +76,11 @@
     {
       "name": "secret-scan",
       "command": "npm run check:secrets",
-      "startedAt": "2026-09-27T14:48:14.327Z",
-      "finishedAt": "2026-09-27T14:48:15.113Z",
+      "startedAt": "2026-09-27T14:44:39.752Z",
+      "finishedAt": "2026-09-27T14:44:40.693Z",
       "exitCode": 0,
       "log": "logs/secret-scan.txt",
-      "logHash": "d174a0ba7a1384c600a9e54152fd2aa3219bce9a3931198a3964dc0087a19765"
+      "logHash": "8d86c8349c235cc900a0b0f53b021f4cec8cbcf62627c30e061ccd48b631c16a"
     }
   ]
 }

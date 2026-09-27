@@ -38,3 +38,7 @@ Local: `lint`, `typecheck`, `unit-component`, `governance`, `build`, `budgets`, 
 CI candidate check names: `reference-quality`, `governance-security`, `phase-evidence`. These names must be confirmed from real runs before configuring required checks. A workflow file alone does not prove CI success or branch protection. The reference runs on Windows to use the existing approved visual baselines; no automatic snapshot replacement is permitted.
 
 Post-merge verification: `npm run phase:complete -- 00 PR_NUMBER`, then a record-only protected PR and `npm run phase:verify`. See `docs/governance/completion.ar.md`. The three evidence jobs run on phase pushes, main pushes and PRs; none may be skipped as proof of merged success.
+
+## User-requested coordinator extension
+
+GOV-00-09: provide sequential Codex/Claude CLI handoff from a VS Code task, with subscription preflight, a single-owner lock, frozen source/evidence, genuine raw response provenance, crash recovery without duplicate completed rounds, and a four-round stop. Verify with regression tests and a separately labeled live transport check. Preserve the unsubmitted pre-coordinator packet under attempts; do not invent or reset completed reviews.

@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a0e34d-658d-7162-8827-2d4571eeb490"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"RECEIVED 5309c628-0bf2-4a7b-bc68-603255fd4b7d blocked."}}
+{"type":"turn.completed","usage":{"input_tokens":15393,"cached_input_tokens":12416,"cache_write_input_tokens":0,"output_tokens":34,"reasoning_output_tokens":0}}
