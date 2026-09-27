@@ -5,10 +5,12 @@
   "phases": [
     {
       "id": "00",
-      "status": "planned",
+      "status": "implementing",
       "branch": "phase/00-governance",
       "rounds": [],
-      "blockers": [],
+      "blockers": [
+        "GitHub returned HTTP 403 for private-repository rulesets: protection requires an eligible plan. Do not change visibility or purchase a plan automatically."
+      ],
       "remote": {
         "repository": "https://github.com/nextleapgit/specialsite",
         "protectionVerified": false,

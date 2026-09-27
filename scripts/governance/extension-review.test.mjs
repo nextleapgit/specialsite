@@ -14,6 +14,7 @@ test('extension handoff prepares locally, imports exact review, rejects duplicat
   const invoke = (command) => spawnSync(process.execPath, [script, command, '00', '01'], { cwd: root, encoding: 'utf8' });
   try {
     git('init', '-b', 'main');
+    writeFileSync(join(root, '.gitignore'), readFileSync(new URL('../../.gitignore', import.meta.url)));
     writeFileSync(join(root, 'source.txt'), 'test fixture source, not production\n');
     const base = join(root, 'docs/phases/00/round-01');
     mkdirSync(base, { recursive: true });
@@ -22,6 +23,14 @@ test('extension handoff prepares locally, imports exact review, rejects duplicat
     git('add', '.');
     git('-c', 'user.name=Fixture', '-c', 'user.email=fixture@example.test', 'commit', '-m', 'fixture');
     const digest = execFileSync(process.execPath, ['--input-type=module', '-e', `import {sourceDigest} from ${JSON.stringify(common)}; console.log(sourceDigest());`], { cwd: root, encoding: 'utf8' }).trim();
+    // Browser preview outputs must not invalidate an otherwise unchanged review.
+    const previews = join(root, 'reference/prototype/previews');
+    mkdirSync(previews, { recursive: true });
+    writeFileSync(join(previews, 'generated.png'), Buffer.from([137, 80, 78, 71]));
+    assert.equal(git('status', '--porcelain', '--untracked-files=all').toString().trim(), '', 'Generated previews must stay ignored');
+    assert.throws(() => git('check-ignore', '--quiet', 'reference/prototype/tests/example.spec.ts-snapshots/approved-win32.png'), 'Approved visual baselines must not be ignored');
+    const afterPreview = execFileSync(process.execPath, ['--input-type=module', '-e', `import {sourceDigest} from ${JSON.stringify(common)}; console.log(sourceDigest());`], { cwd: root, encoding: 'utf8' }).trim();
+    assert.equal(afterPreview, digest, 'Browser preview generation must preserve the source digest');
     writeFileSync(join(base, 'tests.json'), JSON.stringify({ sourceDigest: digest, checks: [] }));
     const prepared = invoke('prepare');
     assert.equal(prepared.status, 0, prepared.stderr);

@@ -1,0 +1,94 @@
+name: Project quality
+
+on:
+  push:
+    branches: [main, 'phase/**']
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quality-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  reference-quality:
+    name: reference-quality
+    # Approved visual snapshots use Windows font rendering and win32 filenames.
+    runs-on: windows-2025
+    timeout-minutes: 25
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24.12.0'
+          cache: npm
+          cache-dependency-path: reference/prototype/package-lock.json
+      - name: Install locked reference dependencies
+        run: npm.cmd run reference:install
+      - name: Install Chromium
+        working-directory: reference/prototype
+        run: npx.cmd --no-install playwright install chromium
+      - name: Lint
+        run: npm.cmd run lint
+      - name: Typecheck
+        run: npm.cmd run typecheck
+      - name: Unit and component tests
+        run: npm.cmd test
+      - name: Build
+        run: npm.cmd run build
+      - name: Bundle budgets
+        run: npm.cmd run check:budgets
+      - name: Browser, accessibility and visual tests
+        run: npm.cmd run test:e2e
+      - name: Retain browser diagnostics
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: browser-diagnostics
+          path: |
+            reference/prototype/playwright-report/
+            reference/prototype/test-results/
+          if-no-files-found: ignore
+          retention-days: 7
+
+  governance-security:
+    name: governance-security
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24.12.0'
+      - name: Governance regression tests
+        run: npm run test:governance
+      - name: Known credential scan
+        run: npm run check:secrets
+      - name: Reference dependency audit
+        run: npm run audit:reference
+
+  phase-evidence:
+    name: phase-evidence
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24.12.0'
+      - name: Require current independent review and local evidence
+        run: npm run gate

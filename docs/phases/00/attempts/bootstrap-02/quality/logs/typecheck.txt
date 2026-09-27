@@ -1,0 +1,10 @@
+
+> specialsite-production-workspace@0.0.0 typecheck
+> npm --prefix reference/prototype run typecheck
+
+
+> ramadan-studio-prototype@1.0.0 typecheck
+> tsc --noEmit
+
+
+
