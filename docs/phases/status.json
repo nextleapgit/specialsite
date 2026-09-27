@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "activePhase": "00",
+  "maxRounds": 4,
+  "phases": [
+    {
+      "id": "00",
+      "status": "planned",
+      "branch": "phase/00-governance",
+      "rounds": [],
+      "blockers": [],
+      "remote": {
+        "repository": "https://github.com/nextleapgit/specialsite",
+        "protectionVerified": false,
+        "pullRequest": null,
+        "checksPassed": false,
+        "headSha": null,
+        "mergeSha": null,
+        "mergedChecksPassed": false
+      }
+    },
+    {
+      "id": "01",
+      "status": "planned"
+    },
+    {
+      "id": "02",
+      "status": "planned"
+    },
+    {
+      "id": "03",
+      "status": "planned"
+    },
+    {
+      "id": "04",
+      "status": "planned"
+    },
+    {
+      "id": "05",
+      "status": "planned"
+    },
+    {
+      "id": "06",
+      "status": "planned"
+    },
+    {
+      "id": "07",
+      "status": "planned"
+    },
+    {
+      "id": "08",
+      "status": "planned"
+    }
+  ]
+}

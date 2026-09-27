@@ -1,0 +1,23 @@
+{
+  "name": "specialsite-production-workspace",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "reference:install": "npm --prefix reference/prototype ci",
+    "reference:dev": "npm --prefix reference/prototype run dev",
+    "lint": "npm --prefix reference/prototype run lint",
+    "typecheck": "npm --prefix reference/prototype run typecheck",
+    "test": "npm --prefix reference/prototype test",
+    "build": "npm --prefix reference/prototype run build",
+    "test:e2e": "npm --prefix reference/prototype run test:e2e",
+    "check:budgets": "npm --prefix reference/prototype run check:budgets",
+    "test:governance": "node --test scripts/governance/*.test.mjs",
+    "check:secrets": "node scripts/governance/secrets.mjs",
+    "audit:reference": "npm --prefix reference/prototype audit --json",
+    "quality": "node scripts/governance/quality.mjs",
+    "review:prepare": "node scripts/governance/extension-review.mjs prepare",
+    "review:import": "node scripts/governance/extension-review.mjs import",
+    "gate": "node scripts/governance/gate.mjs"
+  }
+}

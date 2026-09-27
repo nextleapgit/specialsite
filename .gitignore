@@ -1,0 +1,15 @@
+node_modules/
+dist/
+test-results/
+playwright-report/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.DS_Store
+.vs/
+bin/
+obj/
+.claude/settings.local.json
+reference/prototype/docs/bundle-metrics.json

@@ -1,0 +1,14 @@
+{
+  "reviewer": "claude",
+  "channel": "vscode-extension",
+  "phase": "REPLACE_FROM_REQUEST",
+  "round": "REPLACE_FROM_REQUEST",
+  "sourceDigest": "REPLACE_FROM_REQUEST",
+  "reviewedAt": "REPLACE_WITH_ACTUAL_ISO_TIMESTAMP",
+  "review": {
+    "verdict": "blocked",
+    "summary": "Template only. Claude must replace this after actual review. This is not an approval.",
+    "findings": [],
+    "verifiedClosed": []
+  }
+}

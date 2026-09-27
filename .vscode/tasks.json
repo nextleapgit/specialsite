@@ -1,0 +1,157 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "SpecialSite: Install design reference",
+      "type": "shell",
+      "command": "npm",
+      "windows": {
+        "command": "npm.cmd"
+      },
+      "args": [
+        "run",
+        "reference:install"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "SpecialSite: Install test browser",
+      "type": "shell",
+      "command": "npx",
+      "windows": {
+        "command": "npx.cmd"
+      },
+      "args": [
+        "playwright",
+        "install",
+        "chromium"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/reference/prototype"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "SpecialSite: Run approved prototype",
+      "type": "shell",
+      "command": "npm",
+      "windows": {
+        "command": "npm.cmd"
+      },
+      "args": [
+        "run",
+        "reference:dev"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "SpecialSite: Governance tests",
+      "type": "shell",
+      "command": "npm",
+      "windows": {
+        "command": "npm.cmd"
+      },
+      "args": [
+        "run",
+        "test:governance"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "SpecialSite: Full round quality",
+      "type": "process",
+      "command": "node",
+      "args": [
+        "scripts/governance/quality.mjs",
+        "${input:phase}",
+        "${input:round}"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "SpecialSite: Prepare Claude extension review",
+      "type": "process",
+      "command": "node",
+      "args": [
+        "scripts/governance/extension-review.mjs",
+        "prepare",
+        "${input:phase}",
+        "${input:round}"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "SpecialSite: Import Claude extension review",
+      "type": "process",
+      "command": "node",
+      "args": [
+        "scripts/governance/extension-review.mjs",
+        "import",
+        "${input:phase}",
+        "${input:round}"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "SpecialSite: Check phase gate (blocked until reviewed)",
+      "type": "process",
+      "command": "node",
+      "args": [
+        "scripts/governance/gate.mjs"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "phase",
+      "type": "pickString",
+      "description": "Active phase only — see docs/phases/status.json",
+      "options": [
+        "00",
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08"
+      ],
+      "default": "00"
+    },
+    {
+      "id": "round",
+      "type": "pickString",
+      "description": "Next unsubmitted review round; never overwrite evidence",
+      "options": [
+        "01",
+        "02",
+        "03",
+        "04"
+      ],
+      "default": "01"
+    }
+  ]
+}

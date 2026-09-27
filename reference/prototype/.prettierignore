@@ -1,0 +1,8 @@
+node_modules
+dist
+playwright-report
+test-results
+previews
+package-lock.json
+docs/dependency-inventory.json
+docs/third-party-licenses.txt
