@@ -1,0 +1,74 @@
+[
+  {
+    "type": "resource-snapshot",
+    "snapshot": {
+      "pageref": "page@e1b3b348e41adb52359125201a81d07b",
+      "startedDateTime": "2026-09-27T18:23:56.942Z",
+      "time": 15581.814,
+      "request": {
+        "method": "GET",
+        "url": "http://127.0.0.1:5173/academy.html",
+        "httpVersion": "HTTP/1.1",
+        "cookies": [],
+        "headers": [
+          {
+            "name": "Accept-Language",
+            "value": "en-US"
+          },
+          {
+            "name": "Referer",
+            "value": "http://127.0.0.1:5173/"
+          },
+          {
+            "name": "Upgrade-Insecure-Requests",
+            "value": "1"
+          },
+          {
+            "name": "User-Agent",
+            "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36"
+          },
+          {
+            "name": "sec-ch-ua",
+            "value": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\""
+          },
+          {
+            "name": "sec-ch-ua-mobile",
+            "value": "?0"
+          },
+          {
+            "name": "sec-ch-ua-platform",
+            "value": "\"Windows\""
+          }
+        ],
+        "queryString": [],
+        "headersSize": -1,
+        "bodySize": 0
+      },
+      "response": {
+        "status": -1,
+        "statusText": "",
+        "httpVersion": "HTTP/1.1",
+        "cookies": [],
+        "headers": [],
+        "content": {
+          "size": -1,
+          "mimeType": "x-unknown"
+        },
+        "headersSize": -1,
+        "bodySize": -1,
+        "redirectURL": "",
+        "_transferSize": -1,
+        "_failureText": "net::ERR_SOCKET_NOT_CONNECTED"
+      },
+      "cache": {},
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      },
+      "_frameref": "frame@995e450deb93c1238df04723991e0b8f",
+      "_monotonicTime": 12938.919,
+      "_resourceType": "document"
+    }
+  }
+]

@@ -1,0 +1,7 @@
+{
+  "phase": "00",
+  "rounds": 3,
+  "sourceDigest": "5ff47c9221480f6b492fac9c3fd4eac0b6c187c4d254f5034acc1d81f95f89a8",
+  "mergeAuthorized": false,
+  "message": "Evidence gate passed; live GitHub checks/protection still required before merge"
+}

@@ -5,11 +5,12 @@
   "phases": [
     {
       "id": "00",
-      "status": "remediating",
+      "status": "ready",
       "branch": "phase/00-governance",
       "rounds": [
         1,
-        2
+        2,
+        3
       ],
       "blockers": [],
       "remote": {

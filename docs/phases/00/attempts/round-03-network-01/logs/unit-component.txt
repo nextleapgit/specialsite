@@ -1,0 +1,19 @@
+
+> specialsite-production-workspace@0.0.0 test
+> npm --prefix reference/prototype test
+
+
+> ramadan-studio-prototype@1.0.0 test
+> vitest run
+
+
+ RUN  v5.0.2 D:/Development27/Projects/PersonalSite/specialsite-production/reference/prototype
+
+
+ Test Files  4 passed (4)
+      Tests  72 passed (72)
+   Start at  21:22:53
+   Duration  28.84s (environment 79%, setup 19%, tests 1%, transform 1%)
+
+
+

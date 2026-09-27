@@ -1,0 +1,16 @@
+{
+  "archivedAt": "2026-09-27T20:08:22.958Z",
+  "reason": "Local connectivity failure: Playwright trace recorded ERR_SOCKET_NOT_CONNECTED for 127.0.0.1 academy navigation; npm audit failed ENOTFOUND registry.npmjs.org. DNS subsequently resolved. GitHub reference-quality and governance-security succeeded on same source. Retry full checks without source/test changes; failed attempt is not a pass or a completed review.",
+  "hashes": {
+    "tests.json": "2dcdc25978aef33f06e5707154f72b585295d02163ec2c4190f59ffb1e759840",
+    "logs/budgets.txt": "12cc40b7228ba97c6024703c7b41f66a5bb5543e3c10f25dbf6973f798bde9d5",
+    "logs/build.txt": "21a56d60a8286bd6b6979962f2802b47b3b624786b5f95ddacc86d1655f95e4e",
+    "logs/dependency-audit.txt": "c3b86834801fe307bab3acc08d1e89ff1616064bd9846612a61981f0d3312f8c",
+    "logs/e2e-accessibility-visual.txt": "c21a8a47af0d451498ec7facb954aa7c6f10f4920507acdff4fb21b53776d1a1",
+    "logs/governance.txt": "646416284fee6ba4a2d6ab5722ef389f9afbb0e1ef67f20ce4a2fafafc5be6af",
+    "logs/lint.txt": "8dfd887acb77bc06ca19220b245b089743900cc5f3b24d6b6bf639603f0ee817",
+    "logs/secret-scan.txt": "b953c1560dcae3e7e4865b5b220bac159c22589c433037ee2cd04e5fa98a1ed0",
+    "logs/typecheck.txt": "5316231dee3533485e244b04bdc2c0d37498993e23046ab73e0cef713e675337",
+    "logs/unit-component.txt": "994909a3aa8e577418ab1b7926ef6173c5f8fe7bf80655f567939f5ff8abf8ee"
+  }
+}
