@@ -1,0 +1,15 @@
+{
+  "checkedAt": "2026-09-27T16:05:39.698Z",
+  "sourceDigest": "7d4195ab64505a95e3e5b668e67951e60825cedbeac2f448b38b6a940d6b97ea",
+  "passedChecks": 9,
+  "passedTests": 191,
+  "utf8Strict": true,
+  "submittedRoundUnchanged": true,
+  "reviewSession": "a43cd423-e6ca-4df4-a10a-475501010c8f",
+  "files": {
+    ".vscode/tasks.json": "c57b12f2746bb7825d4e536a9ff3b34876a3b525bd543dc9315f89928e48c183",
+    "docs/phases/00/round-02/codex.md": "a76592825df27f8454406a3613a171892115455a6d0873d494b015725ad51518",
+    "docs/phases/00/round-02/security.md": "e34edc77faa1bc15dee36f6a12dc326a0ff7a091e2243e19846aebd15db1f61e",
+    "docs/phases/00/round-02/remediation.md": "da92f0add22d0583253c6766cf2607fc39f3d8cbfb1109c3b663c6d3849f46f8"
+  }
+}

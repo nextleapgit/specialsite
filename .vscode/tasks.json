@@ -196,7 +196,7 @@
     {
       "id": "phase",
       "type": "pickString",
-      "description": "Active phase only â€” see docs/phases/status.json",
+      "description": "Active phase only - see docs/phases/status.json",
       "options": [
         "00",
         "01",
