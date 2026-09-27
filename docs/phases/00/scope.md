@@ -36,3 +36,5 @@ Initial round count is zero. The collection contains no prior approval/test reco
 Local: `lint`, `typecheck`, `unit-component`, `governance`, `build`, `budgets`, `e2e-accessibility-visual`, `dependency-audit`, `secret-scan`, followed by the phase security assessment and actual independent review.
 
 CI candidate check names: `reference-quality`, `governance-security`, `phase-evidence`. These names must be confirmed from real runs before configuring required checks. A workflow file alone does not prove CI success or branch protection. The reference runs on Windows to use the existing approved visual baselines; no automatic snapshot replacement is permitted.
+
+Post-merge verification: `npm run phase:complete -- 00 PR_NUMBER`, then a record-only protected PR and `npm run phase:verify`. See `docs/governance/completion.ar.md`. The three evidence jobs run on phase pushes, main pushes and PRs; none may be skipped as proof of merged success.

@@ -18,6 +18,8 @@
     "quality": "node scripts/governance/quality.mjs",
     "review:prepare": "node scripts/governance/extension-review.mjs prepare",
     "review:import": "node scripts/governance/extension-review.mjs import",
-    "gate": "node scripts/governance/gate.mjs"
+    "gate": "node scripts/governance/phase-gate.mjs",
+    "phase:complete": "node scripts/governance/completion.mjs prepare",
+    "phase:verify": "node scripts/governance/phase-gate.mjs --live"
   }
 }
