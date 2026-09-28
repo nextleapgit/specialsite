@@ -5,7 +5,7 @@
   "phases": [
     {
       "id": "00",
-      "status": "ready",
+      "status": "complete",
       "branch": "phase/00-governance",
       "rounds": [
         1,
@@ -17,10 +17,10 @@
         "repository": "https://github.com/nextleapgit/specialsite",
         "protectionVerified": true,
         "pullRequest": "https://github.com/nextleapgit/specialsite/pull/1",
-        "checksPassed": false,
-        "headSha": null,
-        "mergeSha": null,
-        "mergedChecksPassed": false
+        "checksPassed": true,
+        "headSha": "6f8050694b5cabd3bc3a64f45e96a265f611a314",
+        "mergeSha": "2df35606c125e2df09cdcfc499923699cca2b320",
+        "mergedChecksPassed": true
       }
     },
     {
