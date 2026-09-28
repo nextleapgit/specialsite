@@ -1,0 +1,49 @@
+
+> specialsite-production-workspace@0.0.0 test:e2e
+> npm --prefix reference/prototype run test:e2e
+
+
+> ramadan-studio-prototype@1.0.0 test:e2e
+> playwright test
+
+
+Running 30 tests using 1 worker
+
+  ok  1 tests\preferences.spec.ts:16:1 › visual personal preferences desktop and mobile (3.6s)
+  ok  2 tests\preferences.spec.ts:32:1 › approved blue is the default and guest sign-in returns to preferences (1.3s)
+  ok  3 tests\preferences.spec.ts:40:1 › saved color, font and reading size persist across reload and academy navigation (3.8s)
+  ok  4 tests\preferences.spec.ts:65:1 › system mode responds to live device changes and manual mode overrides it (1.2s)
+  ok  5 tests\preferences.spec.ts:78:1 › personas keep separate preferences and restoring appearance preserves training data (5.6s)
+  ok  6 tests\preferences.spec.ts:105:1 › storage failure applies the choice without claiming it was saved (939ms)
+  ok  7 tests\preferences.spec.ts:119:1 › preferences remain accessible in all five palettes and both modes (15.5s)
+  ok  8 tests\preferences.spec.ts:143:1 › Arabic preferences reflow at 320px with large text and every font (1.6s)
+  ok  9 tests\prototype.spec.ts:24:1 › every required route renders; guest cannot reach editors (5.7s)
+  ok 10 tests\prototype.spec.ts:63:1 › registration confirms then returns to the requested lesson (2.7s)
+  ok 11 tests\prototype.spec.ts:74:1 › run, evaluate, retry and reset preserve best score and attempt history (7.3s)
+  ok 12 tests\prototype.spec.ts:99:1 › autocomplete toggle and runner error do not create a grade (3.1s)
+  ok 13 tests\prototype.spec.ts:112:1 › newsletter confirmation, preferences and unsubscribe (3.2s)
+  ok 14 tests\prototype.spec.ts:126:1 › publishing partially fails then retries only LinkedIn without duplicates (6.2s)
+  ok 15 tests\prototype.spec.ts:158:1 › course draft sections can be created, ordered and card published (6.7s)
+  ok 16 tests\prototype.spec.ts:174:1 › native dialog traps focus and restores its trigger (1.6s)
+  ok 17 tests\prototype.spec.ts:192:1 › page states recover and theme/language persist (2.5s)
+  ok 18 tests\prototype.spec.ts:206:3 › accessibility core routes light (8.8s)
+  ok 19 tests\prototype.spec.ts:206:3 › accessibility core routes dark (9.4s)
+  ok 20 tests\prototype.spec.ts:236:1 › mobile RTL reflows across all workspaces without page overflow (4.6s)
+  ok 21 tests\prototype.spec.ts:262:1 › visual home desktop and mobile references (2.6s)
+  ok 22 tests\prototype.spec.ts:276:1 › plain text preview escapes markup and sends no external requests (1.3s)
+  ok 23 tests\prototype.spec.ts:294:1 › mobile prototype controls remain inside the viewport in both directions (1.0s)
+  ok 24 tests\reflow.spec.ts:2:1 › expanded academy and authoring reflow at narrow, tablet and desktop widths (8.3s)
+  ok 25 tests\revision.spec.ts:14:1 › three palettes preview live, persist and support dark mode (3.8s)
+  ok 26 tests\revision.spec.ts:38:1 › training opens a separate document and keeps the demo persona (3.1s)
+  ok 27 tests\revision.spec.ts:54:1 › new curriculum remains private until reviewed and explicitly approved (5.6s)
+  ok 28 tests\revision.spec.ts:90:1 › existing course edits apply only after approval and discarded proposals have no effect (5.1s)
+  ok 29 tests\revision.spec.ts:116:1 › AI generation error is recoverable and does not create a curriculum (2.5s)
+  ok 30 tests\revision.spec.ts:128:1 › palette previews and AI review are accessible and reflow in Arabic (11.2s)
+
+  30 passed (2.5m)
+
+[WebServer] (node:36340) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+(node:33276) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+

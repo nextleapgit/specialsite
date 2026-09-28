@@ -1,0 +1,8 @@
+{
+  "startedAt": "2026-09-27T18:10:03.255Z",
+  "phase": "00",
+  "round": "02",
+  "resumeSessionId": "71bf622f-e7db-46f7-80af-96486ac6c073",
+  "reason": "Provider StructuredOutput rejected a parameter wrapper; no successful final CLI envelope was received. Resume the same session with the exact original request input and unchanged source.",
+  "inputHash": "bcb8009a69b0477775ea8419a7d60ed4ef3d2a316f176829b9109b92f46a7f51"
+}

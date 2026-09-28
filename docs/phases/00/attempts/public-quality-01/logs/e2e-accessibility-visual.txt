@@ -1,0 +1,146 @@
+
+> specialsite-production-workspace@0.0.0 test:e2e
+> npm --prefix reference/prototype run test:e2e
+
+
+> ramadan-studio-prototype@1.0.0 test:e2e
+> playwright test
+
+
+Running 30 tests using 1 worker
+
+  ok  1 tests\preferences.spec.ts:16:1 › visual personal preferences desktop and mobile (1.8s)
+  ok  2 tests\preferences.spec.ts:32:1 › approved blue is the default and guest sign-in returns to preferences (794ms)
+  ok  3 tests\preferences.spec.ts:40:1 › saved color, font and reading size persist across reload and academy navigation (2.8s)
+  ok  4 tests\preferences.spec.ts:65:1 › system mode responds to live device changes and manual mode overrides it (906ms)
+  ok  5 tests\preferences.spec.ts:78:1 › personas keep separate preferences and restoring appearance preserves training data (3.4s)
+  ok  6 tests\preferences.spec.ts:105:1 › storage failure applies the choice without claiming it was saved (905ms)
+  x   7 tests\preferences.spec.ts:119:1 › preferences remain accessible in all five palettes and both modes (4.1s)
+  ok  8 tests\preferences.spec.ts:143:1 › Arabic preferences reflow at 320px with large text and every font (1.1s)
+  ok  9 tests\prototype.spec.ts:24:1 › every required route renders; guest cannot reach editors (4.2s)
+  ok 10 tests\prototype.spec.ts:63:1 › registration confirms then returns to the requested lesson (2.0s)
+  ok 11 tests\prototype.spec.ts:74:1 › run, evaluate, retry and reset preserve best score and attempt history (4.5s)
+  ok 12 tests\prototype.spec.ts:99:1 › autocomplete toggle and runner error do not create a grade (2.2s)
+  ok 13 tests\prototype.spec.ts:112:1 › newsletter confirmation, preferences and unsubscribe (2.6s)
+  ok 14 tests\prototype.spec.ts:126:1 › publishing partially fails then retries only LinkedIn without duplicates (4.4s)
+  ok 15 tests\prototype.spec.ts:158:1 › course draft sections can be created, ordered and card published (3.8s)
+  ok 16 tests\prototype.spec.ts:174:1 › native dialog traps focus and restores its trigger (901ms)
+  ok 17 tests\prototype.spec.ts:192:1 › page states recover and theme/language persist (1.3s)
+  ok 18 tests\prototype.spec.ts:206:3 › accessibility core routes light (5.4s)
+  ok 19 tests\prototype.spec.ts:206:3 › accessibility core routes dark (6.5s)
+  ok 20 tests\prototype.spec.ts:236:1 › mobile RTL reflows across all workspaces without page overflow (4.1s)
+  ok 21 tests\prototype.spec.ts:262:1 › visual home desktop and mobile references (1.6s)
+  ok 22 tests\prototype.spec.ts:276:1 › plain text preview escapes markup and sends no external requests (1.1s)
+  ok 23 tests\prototype.spec.ts:294:1 › mobile prototype controls remain inside the viewport in both directions (862ms)
+  ok 24 tests\reflow.spec.ts:2:1 › expanded academy and authoring reflow at narrow, tablet and desktop widths (6.4s)
+  ok 25 tests\revision.spec.ts:14:1 › three palettes preview live, persist and support dark mode (1.5s)
+  ok 26 tests\revision.spec.ts:38:1 › training opens a separate document and keeps the demo persona (2.3s)
+  ok 27 tests\revision.spec.ts:54:1 › new curriculum remains private until reviewed and explicitly approved (3.7s)
+  ok 28 tests\revision.spec.ts:90:1 › existing course edits apply only after approval and discarded proposals have no effect (3.8s)
+  ok 29 tests\revision.spec.ts:116:1 › AI generation error is recoverable and does not create a curriculum (1.8s)
+  ok 30 tests\revision.spec.ts:128:1 › palette previews and AI review are accessible and reflow in Arabic (6.4s)
+
+
+  1) tests\preferences.spec.ts:119:1 › preferences remain accessible in all five palettes and both modes 
+
+    Error: [{"id":"color-contrast","nodes":[[".button[href$=\"academy.html#/training\"]"]]}]
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 58
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+    +     "help": "Elements must meet minimum color contrast ratio thresholds",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=playwright",
+    +     "id": "color-contrast",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": Object {
+    +               "bgColor": "#8957f2",
+    +               "contrastRatio": 4.45,
+    +               "expectedContrastRatio": "4.5:1",
+    +               "fgColor": "#ffffff",
+    +               "fontSize": "9.8pt (13px)",
+    +               "fontWeight": "normal",
+    +               "messageKey": null,
+    +             },
+    +             "id": "color-contrast",
+    +             "impact": "serious",
+    +             "message": "Element has insufficient color contrast of 4.45 (foreground color: #ffffff, background color: #8957f2, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<a href=\"./academy.html#/training\" class=\"button\">Explore the academy</a>",
+    +                 "target": Array [
+    +                   ".button[href$=\"academy.html#/training\"]",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Element has insufficient color contrast of 4.45 (foreground color: #ffffff, background color: #8957f2, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +         "html": "<a href=\"./academy.html#/training\" class=\"button\">Explore the academy</a>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           ".button[href$=\"academy.html#/training\"]",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.color",
+    +       "wcag2aa",
+    +       "wcag143",
+    +       "TTv5",
+    +       "TT13.c",
+    +       "EN-301-549",
+    +       "EN-9.1.4.3",
+    +       "ACT",
+    +       "RGAAv4",
+    +       "RGAA-3.2.1",
+    +     ],
+    +   },
+    + ]
+
+      137 |           results.violations.map((x) => ({ id: x.id, nodes: x.nodes.map((n) => n.target) })),
+      138 |         ),
+    > 139 |       ).toEqual([]);
+          |         ^
+      140 |     }
+      141 |   }
+      142 | });
+        at D:\Development27\Projects\PersonalSite\specialsite-production\reference\prototype\tests\preferences.spec.ts:139:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\preferences-preferences-re-e294a-ive-palettes-and-both-modes\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\preferences-preferences-re-e294a-ive-palettes-and-both-modes\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\preferences-preferences-re-e294a-ive-palettes-and-both-modes\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\preferences-preferences-re-e294a-ive-palettes-and-both-modes\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    tests\preferences.spec.ts:119:1 › preferences remain accessible in all five palettes and both modes 
+  29 passed (1.5m)
+
+[WebServer] (node:24772) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+(node:22112) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:40560) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+

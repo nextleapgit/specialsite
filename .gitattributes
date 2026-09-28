@@ -3,3 +3,5 @@
 *.jpg binary
 *.jpeg binary
 docs/phases/** -text
+# Preserve tool output byte-for-byte; whitespace checks apply to authored source.
+docs/phases/**/logs/*.txt -whitespace

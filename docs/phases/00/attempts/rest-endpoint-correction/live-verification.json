@@ -1,0 +1,75 @@
+{
+  "checkedAt": "2026-09-27T18:22:16.523Z",
+  "repository": {
+    "full_name": "nextleapgit/specialsite",
+    "private": false
+  },
+  "rootEndpoint": "repos/nextleapgit/specialsite",
+  "protection": {
+    "url": "https://api.github.com/repos/nextleapgit/specialsite/branches/main/protection",
+    "required_status_checks": {
+      "url": "https://api.github.com/repos/nextleapgit/specialsite/branches/main/protection/required_status_checks",
+      "strict": true,
+      "contexts": [
+        "reference-quality",
+        "governance-security",
+        "phase-evidence"
+      ],
+      "contexts_url": "https://api.github.com/repos/nextleapgit/specialsite/branches/main/protection/required_status_checks/contexts",
+      "checks": [
+        {
+          "context": "reference-quality",
+          "app_id": 15368
+        },
+        {
+          "context": "governance-security",
+          "app_id": 15368
+        },
+        {
+          "context": "phase-evidence",
+          "app_id": 15368
+        }
+      ]
+    },
+    "required_pull_request_reviews": {
+      "url": "https://api.github.com/repos/nextleapgit/specialsite/branches/main/protection/required_pull_request_reviews",
+      "dismiss_stale_reviews": true,
+      "require_code_owner_reviews": false,
+      "require_last_push_approval": false,
+      "required_approving_review_count": 0
+    },
+    "required_signatures": {
+      "url": "https://api.github.com/repos/nextleapgit/specialsite/branches/main/protection/required_signatures",
+      "enabled": false
+    },
+    "enforce_admins": {
+      "url": "https://api.github.com/repos/nextleapgit/specialsite/branches/main/protection/enforce_admins",
+      "enabled": true
+    },
+    "required_linear_history": {
+      "enabled": false
+    },
+    "allow_force_pushes": {
+      "enabled": false
+    },
+    "allow_deletions": {
+      "enabled": false
+    },
+    "block_creations": {
+      "enabled": false
+    },
+    "required_conversation_resolution": {
+      "enabled": true
+    },
+    "lock_branch": {
+      "enabled": false
+    },
+    "allow_fork_syncing": {
+      "enabled": false
+    }
+  },
+  "priorRunValidated": "https://github.com/nextleapgit/specialsite/actions/runs/36339858328",
+  "priorHead": "b247725a16f8173a1a95d9ad27c4ffc3e337acea",
+  "merged": false,
+  "note": "Transport and validator smoke check only; previous source CI does not attest to changed source."
+}

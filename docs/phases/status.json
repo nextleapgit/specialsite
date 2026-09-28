@@ -5,14 +5,18 @@
   "phases": [
     {
       "id": "00",
-      "status": "planned",
+      "status": "ready",
       "branch": "phase/00-governance",
-      "rounds": [],
+      "rounds": [
+        1,
+        2,
+        3
+      ],
       "blockers": [],
       "remote": {
         "repository": "https://github.com/nextleapgit/specialsite",
-        "protectionVerified": false,
-        "pullRequest": null,
+        "protectionVerified": true,
+        "pullRequest": "https://github.com/nextleapgit/specialsite/pull/1",
         "checksPassed": false,
         "headSha": null,
         "mergeSha": null,

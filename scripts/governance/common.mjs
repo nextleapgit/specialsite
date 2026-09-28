@@ -30,3 +30,15 @@ export function validateReview(review) {
   if (review.verdict === 'approve' && review.findings.length) throw new Error('Approval has open findings');
   return review;
 }
+
+// Recompute a historical source fingerprint; never trust a fingerprint in a record alone.
+export function sourceDigestAt(revision) {
+  if (!/^[a-f0-9]{40}$/.test(revision)) throw new Error('Invalid source revision');
+  const files = git('ls-tree', '-r', '--name-only', '-z', revision).split('\0').filter(Boolean)
+    .filter((p) => p !== 'docs/phases/status.json' && !/^docs\/phases\/\d{2}\/(round-\d{2}|attempts)\//.test(p)).sort();
+  return sha256(files.map((p) => {
+    let bytes = execFileSync('git', ['-c', `safe.directory=${process.cwd()}`, 'show', `${revision}:${p}`], { maxBuffer: 32 * 1024 * 1024, windowsHide: true });
+    if (!/\.(png|jpe?g|zip)$/i.test(p)) bytes = Buffer.from(bytes.toString('utf8').replace(/\r\n/g, '\n'));
+    return `${p}\0${sha256(bytes)}`;
+  }).join('\n'));
+}

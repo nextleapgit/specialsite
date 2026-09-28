@@ -13,3 +13,5 @@ bin/
 obj/
 .claude/settings.local.json
 reference/prototype/docs/bundle-metrics.json
+reference/prototype/previews/
+debug.log

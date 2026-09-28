@@ -1,0 +1,49 @@
+
+> specialsite-production-workspace@0.0.0 test:governance
+> node --test scripts/governance/*.test.mjs
+
+✔ extension handoff prepares locally, imports exact review, rejects duplicate/stale results (1205.5222ms)
+✔ valid evidence passes but never authorizes merge itself (10.4068ms)
+✔ rejects missing review (1.308ms)
+✔ rejects stale review (0.722ms)
+✔ rejects forged extraction (1.2847ms)
+✔ rejects Claude runtime error (0.5294ms)
+✔ rejects missing provenance (0.4578ms)
+✔ rejects changed input (0.4695ms)
+✔ rejects changed log (0.6626ms)
+✔ rejects failed regression (0.7313ms)
+✔ rejects missing mandatory security test (0.9823ms)
+✔ rejects duplicated test name (0.5923ms)
+✔ rejects traversal log path (1.2954ms)
+✔ rejects unresolved blocker (0.6004ms)
+✔ rejects fifth round (0.5003ms)
+✔ rejects reset round count (0.3925ms)
+✔ rejects later phase starts early (0.2166ms)
+✔ rejects missing predecessor merge (0.1689ms)
+✔ rejects weakened policy (0.1345ms)
+✔ rejects reordered phases (0.2401ms)
+✔ rejects incomplete document (0.4433ms)
+✔ approval cannot contain open defects (0.1885ms)
+✔ prior finding cannot disappear without independent closure (1.447ms)
+✔ accepts explicitly labeled extension review without inventing CLI session (0.4492ms)
+✔ extension gate rejects modified original response (0.2543ms)
+✔ extension gate rejects different request digest (0.3463ms)
+✔ extension gate rejects different request round (0.2243ms)
+✔ extension gate rejects missing original extension response (0.2928ms)
+✔ extension gate rejects changed extracted verdict (0.2121ms)
+✔ extension gate rejects unknown review channel (0.5081ms)
+✔ extension parser rejects wrong reviewer (0.2534ms)
+✔ extension parser rejects wrong phase (0.127ms)
+✔ extension parser rejects wrong round (0.2366ms)
+✔ extension parser rejects stale source (0.1574ms)
+✔ extension parser rejects missing timestamp (0.1469ms)
+ℹ tests 35
+ℹ suites 0
+ℹ pass 35
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1298.9953
+
+

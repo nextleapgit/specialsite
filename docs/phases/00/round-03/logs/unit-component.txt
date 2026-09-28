@@ -1,0 +1,23 @@
+
+> specialsite-production-workspace@0.0.0 test
+> npm --prefix reference/prototype test
+
+
+> ramadan-studio-prototype@1.0.0 test
+> vitest run
+
+
+ RUN  v5.0.2 D:/Development27/Projects/PersonalSite/specialsite-production/reference/prototype
+
+
+ Test Files  4 passed (4)
+      Tests  72 passed (72)
+   Start at  23:08:35
+   Duration  4.48s (environment 48%, transform 27%, setup 14%, tests 8%, import 2%)
+
+  Transform  transforming modules took 3.64s · 27% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+
+
+

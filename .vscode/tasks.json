@@ -115,7 +115,76 @@
       "type": "process",
       "command": "node",
       "args": [
-        "scripts/governance/gate.mjs"
+        "scripts/governance/phase-gate.mjs"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "SpecialSite: Record verified phase merge",
+      "type": "process",
+      "command": "node",
+      "args": [
+        "scripts/governance/completion.mjs",
+        "prepare",
+        "${input:phase}",
+        "${input:mergedPhasePr}"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "SpecialSite: Verify completed phases on GitHub (read only)",
+      "type": "process",
+      "command": "node",
+      "args": [
+        "scripts/governance/phase-gate.mjs",
+        "--live"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "SpecialSite: Check coordinator connections",
+      "type": "process",
+      "command": "node",
+      "args": [
+        "scripts/governance/coordinator.mjs",
+        "doctor"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "SpecialSite: Coordinate Codex and Claude",
+      "type": "process",
+      "command": "node",
+      "args": [
+        "scripts/governance/coordinator.mjs",
+        "run",
+        "${input:phase}"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "SpecialSite: Show coordinator state",
+      "type": "process",
+      "command": "node",
+      "args": [
+        "scripts/governance/coordinator.mjs",
+        "status",
+        "${input:phase}"
       ],
       "options": {
         "cwd": "${workspaceFolder}"
@@ -127,7 +196,7 @@
     {
       "id": "phase",
       "type": "pickString",
-      "description": "Active phase only — see docs/phases/status.json",
+      "description": "Active phase only - see docs/phases/status.json",
       "options": [
         "00",
         "01",
@@ -152,6 +221,11 @@
         "04"
       ],
       "default": "01"
+    },
+    {
+      "id": "mergedPhasePr",
+      "type": "promptString",
+      "description": "Merged phase PR number; requires a clean completion/NN branch at the merge commit"
     }
   ]
 }

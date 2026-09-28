@@ -10,7 +10,7 @@
     "typecheck": "npm --prefix reference/prototype run typecheck",
     "test": "npm --prefix reference/prototype test",
     "build": "npm --prefix reference/prototype run build",
-    "test:e2e": "npm --prefix reference/prototype run test:e2e",
+    "test:e2e": "node scripts/governance/reference-e2e.mjs",
     "check:budgets": "npm --prefix reference/prototype run check:budgets",
     "test:governance": "node --test scripts/governance/*.test.mjs",
     "check:secrets": "node scripts/governance/secrets.mjs",
@@ -18,6 +18,11 @@
     "quality": "node scripts/governance/quality.mjs",
     "review:prepare": "node scripts/governance/extension-review.mjs prepare",
     "review:import": "node scripts/governance/extension-review.mjs import",
-    "gate": "node scripts/governance/gate.mjs"
+    "gate": "node scripts/governance/phase-gate.mjs",
+    "phase:complete": "node scripts/governance/completion.mjs prepare",
+    "phase:verify": "node scripts/governance/phase-gate.mjs --live",
+    "coordinator:doctor": "node scripts/governance/coordinator.mjs doctor",
+    "coordinator:run": "node scripts/governance/coordinator.mjs run",
+    "coordinator:status": "node scripts/governance/coordinator.mjs status"
   }
 }

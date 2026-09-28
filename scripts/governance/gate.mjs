@@ -2,18 +2,10 @@ import { readFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { parseClaude, readJson, sha256, sourceDigest } from './common.mjs';
 import { parseExtension } from './extension-review.mjs';
+import { validateCliPacket } from './cli-review.mjs';
 
-export const commonChecks = ['lint', 'typecheck', 'unit-component', 'governance', 'build', 'budgets', 'e2e-accessibility-visual', 'dependency-audit', 'secret-scan'];
-const phaseChecks = {
-  '00': [], '01': ['contract-validation', 'threat-model-review'],
-  '02': ['postgres-integration', 'identity-security'],
-  '03': ['postgres-integration', 'identity-security', 'content-security'],
-  '04': ['postgres-integration', 'identity-security', 'content-security', 'training-integration'],
-  '05': ['postgres-integration', 'identity-security', 'content-security', 'training-integration', 'runner-isolation'],
-  '06': ['postgres-integration', 'identity-security', 'content-security', 'training-integration', 'runner-isolation', 'ai-contract-security'],
-  '07': ['postgres-integration', 'identity-security', 'content-security', 'training-integration', 'runner-isolation', 'ai-contract-security', 'delivery-security'],
-  '08': ['postgres-integration', 'identity-security', 'content-security', 'training-integration', 'runner-isolation', 'ai-contract-security', 'delivery-security', 'dast', 'load', 'restore-rollback', 'release-security'],
-};
+import { commonChecks, phaseChecks } from './required-checks.mjs';
+export { commonChecks } from './required-checks.mjs';
 
 export function validateGate(status, digest, load) {
   const fail = (message) => { throw new Error(message); };
@@ -47,6 +39,12 @@ export function validateGate(status, digest, load) {
       const raw = load(base + 'claude-raw.json', true);
       review = parseClaude(raw);
       if (report.sessionId !== raw.session_id) fail('CLI session mismatch');
+      if (report.channel === 'cli') {
+        const requestText = load(base + 'request.json');
+        const request = JSON.parse(requestText);
+        validateCliPacket(request, base.slice(0, -1), (p) => load(p));
+        if (request.phase !== phase.id || request.round !== String(n).padStart(2, '0') || request.sourceDigest !== report.sourceDigest || request.inputHash !== report.inputHash || report.requestHash !== sha256(requestText) || report.rawHash !== sha256(load(base + 'claude-raw.json'))) fail('CLI request or original response mismatch');
+      }
     } else fail('Unsupported review channel');
     if (JSON.stringify(review) !== JSON.stringify(report.review) || report.reviewer !== 'claude') fail('Review is not an exact extraction of Claude output');
     if (!/^[a-f0-9]{64}$/.test(report.sourceDigest ?? '') || report.inputHash !== sha256(load(base + 'claude-input.txt'))) fail('Review input integrity failed');

@@ -1,0 +1,21 @@
+
+> specialsite-production-workspace@0.0.0 check:budgets
+> npm --prefix reference/prototype run check:budgets
+
+
+> ramadan-studio-prototype@1.0.0 check:budgets
+> node scripts/check-budgets.mjs
+
+{
+  initialJavaScriptGzip: 134110,
+  initialChunks: [
+    './assets/domain-BIbDH9kN.js',
+    './assets/book-open-C1td8G3I.js',
+    './assets/main-ydSQJBAo.js'
+  ],
+  cssGzip: 13544,
+  budgets: { initialJavaScriptGzip: 153600, cssGzip: 25600 },
+  note: 'Includes all initial module script entries emitted by Rolldown, including shared domain code. Both HTML documents share the same entry chunks. Transfer-size budget only, not Core Web Vitals.'
+}
+
+

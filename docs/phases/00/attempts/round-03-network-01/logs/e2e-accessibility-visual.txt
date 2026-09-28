@@ -1,0 +1,91 @@
+
+> specialsite-production-workspace@0.0.0 test:e2e
+> node scripts/governance/reference-e2e.mjs
+
+
+Running 32 tests using 1 worker
+
+  ok  1 tests\preferences.spec.ts:16:1 › visual personal preferences desktop and mobile (2.7s)
+  ok  2 tests\preferences.spec.ts:32:1 › approved blue is the default and guest sign-in returns to preferences (898ms)
+  x   3 tests\preferences.spec.ts:40:1 › saved color, font and reading size persist across reload and academy navigation (25.5s)
+  ok  4 tests\preferences.spec.ts:65:1 › system mode responds to live device changes and manual mode overrides it (778ms)
+  ok  5 tests\preferences.spec.ts:78:1 › personas keep separate preferences and restoring appearance preserves training data (5.5s)
+  ok  6 tests\preferences.spec.ts:105:1 › storage failure applies the choice without claiming it was saved (993ms)
+  ok  7 tests\preferences.spec.ts:119:1 › preferences remain accessible in all five palettes and both modes (10.0s)
+  ok  8 tests\preferences.spec.ts:143:1 › Arabic preferences reflow at 320px with large text and every font (1.2s)
+  ok  9 tests\prototype.spec.ts:24:1 › every required route renders; guest cannot reach editors (4.7s)
+  ok 10 tests\prototype.spec.ts:63:1 › registration confirms then returns to the requested lesson (2.4s)
+  ok 11 tests\prototype.spec.ts:74:1 › run, evaluate, retry and reset preserve best score and attempt history (4.8s)
+  ok 12 tests\prototype.spec.ts:99:1 › autocomplete toggle and runner error do not create a grade (2.3s)
+  ok 13 tests\prototype.spec.ts:112:1 › newsletter confirmation, preferences and unsubscribe (2.6s)
+  ok 14 tests\prototype.spec.ts:126:1 › publishing partially fails then retries only LinkedIn without duplicates (4.7s)
+  ok 15 tests\prototype.spec.ts:158:1 › course draft sections can be created, ordered and card published (3.0s)
+  ok 16 tests\prototype.spec.ts:174:1 › native dialog traps focus and restores its trigger (977ms)
+  ok 17 tests\prototype.spec.ts:192:1 › page states recover and theme/language persist (1.3s)
+  ok 18 tests\prototype.spec.ts:206:3 › accessibility core routes light (6.1s)
+  ok 19 tests\prototype.spec.ts:206:3 › accessibility core routes dark (5.8s)
+  ok 20 tests\prototype.spec.ts:236:1 › mobile RTL reflows across all workspaces without page overflow (3.7s)
+  ok 21 tests\prototype.spec.ts:262:1 › visual home desktop and mobile references (1.6s)
+  ok 22 tests\prototype.spec.ts:276:1 › plain text preview escapes markup and sends no external requests (992ms)
+  ok 23 tests\prototype.spec.ts:294:1 › mobile prototype controls remain inside the viewport in both directions (721ms)
+  ok 24 tests\reflow.spec.ts:2:1 › expanded academy and authoring reflow at narrow, tablet and desktop widths (6.9s)
+  ok 25 tests\revision.spec.ts:14:1 › three palettes preview live, persist and support dark mode (1.5s)
+  ok 26 tests\revision.spec.ts:38:1 › training opens a separate document and keeps the demo persona (2.6s)
+  ok 27 tests\revision.spec.ts:54:1 › new curriculum remains private until reviewed and explicitly approved (4.2s)
+  ok 28 tests\revision.spec.ts:90:1 › existing course edits apply only after approval and discarded proposals have no effect (4.1s)
+  ok 29 tests\revision.spec.ts:116:1 › AI generation error is recoverable and does not create a curriculum (1.9s)
+  ok 30 tests\revision.spec.ts:128:1 › palette previews and AI review are accessible and reflow in Arabic (7.1s)
+  ok 31 [normal-motion] › ..\..\scripts\governance\browser-tests\reference-motion.spec.ts:23:1 › normal motion: five preference palettes pass accessibility after transitions finish (9.3s)
+  ok 32 [normal-motion] › ..\..\scripts\governance\browser-tests\reference-motion.spec.ts:38:1 › normal motion: appearance previews pass accessibility after transitions finish (6.1s)
+
+
+  1) tests\preferences.spec.ts:40:1 › saved color, font and reading size persist across reload and academy navigation 
+
+    Error: expect(page).toHaveURL(expected) failed
+
+    Expected pattern: /academy\.html#\/training$/
+    Received string:  "chrome-error://chromewebdata/"
+    Timeout: 7000ms
+
+    Call log:
+      - Expect "toHaveURL" with timeout 7000ms
+        11 × locator resolved to <html>…</html>
+           - unexpected value "chrome-error://chromewebdata/"
+
+
+      56 |   await expect(page.locator('.reading-sample')).toHaveCSS('font-size', '22px');
+      57 |   await page.getByRole('link', { name: 'Explore the academy', exact: true }).click();
+    > 58 |   await expect(page).toHaveURL(/academy\.html#\/training$/);
+         |                      ^
+      59 |   await expect(page.locator('html')).toHaveAttribute('data-font', 'tahoma');
+      60 |   await expect(page.locator('html')).toHaveAttribute('data-palette', 'teal');
+      61 |   await page.getByRole('link', { name: 'Explore course', exact: true }).click();
+        at D:\Development27\Projects\PersonalSite\specialsite-production\reference\prototype\tests\preferences.spec.ts:58:22
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\preferences-saved-color-fo-111fc-load-and-academy-navigation\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\preferences-saved-color-fo-111fc-load-and-academy-navigation\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\preferences-saved-color-fo-111fc-load-and-academy-navigation\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\preferences-saved-color-fo-111fc-load-and-academy-navigation\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    tests\preferences.spec.ts:40:1 › saved color, font and reading size persist across reload and academy navigation 
+  31 passed (2.4m)
+
+[WebServer] (node:31488) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+(node:3752) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:44084) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:40396) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+

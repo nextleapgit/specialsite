@@ -1,0 +1,66 @@
+{
+  "reason": "User explicitly confirmed the prepared extension review was never started; coordinator scope requested before submission. No completed round was reset.",
+  "archivedAt": "2026-09-27T14:30:47.7811378Z",
+  "files": [
+    {
+      "path": "claude-input.txt",
+      "sha256": "651ADA8067E19C4839924625DE6558B2C0D937320CCB6653C32EC89F4177E03E"
+    },
+    {
+      "path": "codex.md",
+      "sha256": "85DD15DB2EAA49C51BAFA6276A8A817AC2DAC6229A04B3E0F8329B4B17439514"
+    },
+    {
+      "path": "remediation.md",
+      "sha256": "489F426A6B3739FBF712B6B299F2575C1DE0AF51E107DA7E8A1B9C7063248CF1"
+    },
+    {
+      "path": "request.json",
+      "sha256": "EE8EA5937F54ABB82BE79CEFFEF73940D01201441049519B8D32CA7B52C511F7"
+    },
+    {
+      "path": "security.md",
+      "sha256": "CD2A865046F48534411DFEE6BFDC4FC2632D589C22303F9B5E41A1913E3651C2"
+    },
+    {
+      "path": "tests.json",
+      "sha256": "B874BF6DBC335032438749D043F4253830F79C6FD2C331B8E65E1C4275FDC4C9"
+    },
+    {
+      "path": "logs\\budgets.txt",
+      "sha256": "12CC40B7228BA97C6024703C7B41F66A5BB5543E3C10F25DBF6973F798BDE9D5"
+    },
+    {
+      "path": "logs\\build.txt",
+      "sha256": "6EAA9A9B7744E073744C39B0174A2309AD327DB2B1AD66007F6C88D2E0961A5D"
+    },
+    {
+      "path": "logs\\dependency-audit.txt",
+      "sha256": "DB086C3BC7FF76EF84993CFEDD85CF723CC33D63DC0752C67F037EB3F07B06AB"
+    },
+    {
+      "path": "logs\\e2e-accessibility-visual.txt",
+      "sha256": "AE1E7A23DD4EF0D6D9AE226BC16FBF5433B34422A4FB103A71D76F6E6F3937A4"
+    },
+    {
+      "path": "logs\\governance.txt",
+      "sha256": "B4CFDCB78B617B8ABC86D28D2EC8F86CE840F185D7248366AC4EEF1B105CA4C8"
+    },
+    {
+      "path": "logs\\lint.txt",
+      "sha256": "8DFD887ACB77BC06CA19220B245B089743900CC5F3B24D6B6BF639603F0EE817"
+    },
+    {
+      "path": "logs\\secret-scan.txt",
+      "sha256": "861AE8B289BD80E33E24E9586B76AD03E83367995E15010A8A43E2FC971986FF"
+    },
+    {
+      "path": "logs\\typecheck.txt",
+      "sha256": "5316231DEE3533485E244B04BDC2C0D37498993E23046AB73E0CEF713E675337"
+    },
+    {
+      "path": "logs\\unit-component.txt",
+      "sha256": "E3963EE1607A0E853E654399694C6BA44EEC79AEDD2D7D17B226A9D02B20513E"
+    }
+  ]
+}
